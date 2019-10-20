@@ -31,10 +31,13 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer detail-footer">
-              <a class="pull-left detail-active" href="detail-restaurant.html">
+              <a class="pull-left" routerLinkActive="detail-active" [routerLink]="['menu']">
                  Menu
               </a>
-              <a class="pull-right" href="detail-restaurant-reviews.html">
+              <!-- //essa rota é relativa, entao nao necessita de barra / no inicio
+              Se colocar a barra ele vai da raiz ate o diretorio, como estamos
+            criando um rota filha, nao é necessário-->
+              <a class="pull-right" routerLinkActive="detail-active" [routerLink]="['reviews']">
                  Avaliações
               </a>
             </div>
@@ -44,7 +47,7 @@
       </div>
       <div class="row">
           <!--INÍCIO DO MENU -->
-            <mt-menu></mt-menu>
+            <router-outlet></router-outlet>
           <!-- FIM DO MENU -->
       </div>
 
