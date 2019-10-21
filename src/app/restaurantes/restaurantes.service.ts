@@ -1,30 +1,42 @@
+import {Injectable} from '@angular/core'
+import {Http} from  '@angular/http'
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
+
 import { Restaurante } from "app/restaurantes/restaurante/restaurante.model";
 
+import {MEAT_API} from '../app.api'
+import {ErrorHandler} from '../app.error-handler'
+import { MenuItem } from "app/restaurante-detail/menu-item/menu-item.model";
+
+@Injectable()
 export class RestaurantesService {
 
-  rests: Restaurante [] = [
+  constructor(private http: Http){}
 
-    {
-      id: "bread-bakery",
-      name: "Bread & Bakery",
-      category: "Bakery",
-      deliveryEstimate: "25m",
-      rating: 4.9,
-      imagePath: "assets/img/restaurants/breadbakery.png"
-    },
-    {
-      id: "burger-house",
-      name: "Burger House",
-      category: "Hamburgers",
-      deliveryEstimate: "100m",
-      rating: 3.5,
-      imagePath: "assets/img/restaurants/burgerhouse.png"
-    }
-  ]
-  
-  constructor(){}
+  restaurantes(): Observable<Restaurante[]> {
+    return this.http.get(`${MEAT_API}/restaurants`)
+      .map(response => response.json())
+      .catch(ErrorHandler.handleError)
+  }
 
-  restaurantes(): Restaurante[] {
-    return this.rests;
+  //*um servico retorna um observable, por isso é necessario um map transformando-o em json.
+  restaurantesById(id: string): Observable<Restaurante>{
+    return this.http.get(`${MEAT_API}/restaurants/${id}`)
+      .map(response => response.json())
+      .catch(ErrorHandler.handleError)
+  }
+
+  reviewsOfRestaurant(id: String): Observable<any>{
+    return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
+  menuOfRestaurant(id: String): Observable<MenuItem>{
+    return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
   }
 }
