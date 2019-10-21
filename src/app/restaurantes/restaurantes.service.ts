@@ -8,6 +8,7 @@ import { Restaurante } from "app/restaurantes/restaurante/restaurante.model";
 
 import {MEAT_API} from '../app.api'
 import {ErrorHandler} from '../app.error-handler'
+import { MenuItem } from "app/restaurante-detail/menu-item/menu-item.model";
 
 @Injectable()
 export class RestaurantesService {
@@ -29,6 +30,12 @@ export class RestaurantesService {
 
   reviewsOfRestaurant(id: String): Observable<any>{
     return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
+  menuOfRestaurant(id: String): Observable<MenuItem>{
+    return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
     .map(response => response.json())
     .catch(ErrorHandler.handleError)
   }
