@@ -7,7 +7,15 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <div class="table-responsive">
+
+      <div class="text-center" *ngIf="!items().length">
+        <p>
+          Seu carrinho está vazio!
+        </p>
+      </div>
+
+
+      <div class="table-responsive" *ngIf="items().length">
           <table class="table">
             <tbody>
             <tr *ngFor="let item of items()">
