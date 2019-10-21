@@ -18,6 +18,7 @@ import { MenuComponent } from 'app/restaurante-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurante-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurante-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurante-detail/reviews/reviews.component';
+import { ShoppingCartService } from "app/restaurante-detail/shopping-cart/shopping-cart.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ReviewsComponent } from './restaurante-detail/reviews/reviews.component
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantesService],
+  providers: [RestaurantesService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
