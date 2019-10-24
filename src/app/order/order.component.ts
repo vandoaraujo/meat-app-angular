@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RadioOption } from "../shared/radio/radio-option.model";
-import { ControlValueAccessor } from "@angular/forms";
+
 
 @Component({
   selector: 'mt-order',
