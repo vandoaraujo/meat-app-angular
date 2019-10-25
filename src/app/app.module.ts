@@ -23,7 +23,7 @@ import { ShoppingCartService } from "app/restaurante-detail/shopping-cart/shoppi
 import { OrderComponent } from './order/order.component';
 import { InputComponent } from 'app/shared/input/input.component';
 import { RadioComponent } from 'app/shared/radio/radio.component';
-import { OrderItemsComponent } from './order/order-items/order-items.component';
+import { OrderItemsComponent } from 'app/order/order-items/order-items.component';
 import { OrderService } from "app/order/order.service";
 
 @NgModule({
