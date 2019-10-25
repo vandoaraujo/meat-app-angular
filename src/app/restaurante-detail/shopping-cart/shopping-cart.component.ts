@@ -14,6 +14,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   items(): CartItem[]{
+    console.log('CartItems....')
     return this.shoppingCartService.items;
   }
 
