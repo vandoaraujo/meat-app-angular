@@ -370,5 +370,23 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "PARANHOS DA SILVA",
+      "number": "33",
+      "optionalAddress": "3",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "greensandwich"
+        },
+        {
+          "quantity": 1,
+          "menuId": "zlasagna"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

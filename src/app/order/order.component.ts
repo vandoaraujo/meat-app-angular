@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from "../shared/radio/radio-option.model";
 import { OrderService } from "app/order/order.service";
 import { CartItem } from "app/restaurante-detail/shopping-cart/cart-item.model";
+import { Order, OrderItem } from "app/order/order.model";
 
 
 @Component({
@@ -9,6 +10,8 @@ import { CartItem } from "app/restaurante-detail/shopping-cart/cart-item.model";
   templateUrl: './order.component.html'
 })
 export class OrderComponent implements OnInit {
+
+  delivery: number = 8
 
   paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value: 'MON'},
@@ -21,6 +24,10 @@ export class OrderComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+  }
+
+  itemsValue(): number {
+    return this.orderService.itemsValue()
   }
 
   cartItems(): CartItem[]{
@@ -37,6 +44,18 @@ export class OrderComponent implements OnInit {
 
   remove(item: CartItem){
     return this.orderService.remove(item)
+  }
+
+  //metodo subscribe faz a inscrita naquele observer, nesse momento o observable faz a subscricao
+  checkOrder(order: Order){
+    order.orderItems = this.cartItems()
+      .map((item:CartItem)=>new OrderItem(item.quantity, item.menuItem.id))
+      this.orderService.checkOrder(order)
+        .subscribe( (orderId: string) => {
+            console.log(`Compra concluida: ${orderId}`)
+            this.orderService.clear()
+        })
+    console.log(order)
   }
 
 
