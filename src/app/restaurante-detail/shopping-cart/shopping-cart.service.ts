@@ -4,7 +4,6 @@ import { MenuItem } from "app/restaurante-detail/menu-item/menu-item.model";
 export class ShoppingCartService {
   items: CartItem[] = []
 
-
   clear(){
     this.items  = []
   }

@@ -5,11 +5,10 @@ import { CartItem } from "app/restaurante-detail/shopping-cart/cart-item.model";
 @Injectable()
 export class OrderService {
 
-  constructor(private cartService: ShoppingCartService){
-
-  }
+  constructor(private cartService: ShoppingCartService){}
 
   cartItems() : CartItem[]{
+    console.log('Order Service')
     return this.cartService.items
   }
 
@@ -24,6 +23,5 @@ export class OrderService {
   remove(item: CartItem){
     this.cartService.removeItem(item)
   }
-
 
 }
