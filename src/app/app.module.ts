@@ -11,7 +11,6 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component'
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { RestauranteComponent } from "app/restaurantes/restaurante/restaurante.component";
 import { RestaurantesService } from "app/restaurantes/restaurantes.service";
 import { RestauranteDetailComponent } from './restaurante-detail/restaurante-detail.component';
@@ -34,7 +33,6 @@ import { SharedModule } from "app/shared/shared.module";
     RestaurantesComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent,
     RestauranteComponent,
     RestauranteDetailComponent,
     MenuComponent,
