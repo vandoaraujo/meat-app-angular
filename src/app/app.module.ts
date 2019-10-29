@@ -38,7 +38,7 @@ import { CoreModule } from 'app/core/core.module'
   imports: [
     BrowserModule,
     HttpModule,
-    SharedModule,
+    SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [FormBuilder, {provide: LOCALE_ID, useValue: 'pt-BR'}],
