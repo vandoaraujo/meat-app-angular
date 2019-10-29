@@ -12,20 +12,14 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component'
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RestauranteComponent } from "app/restaurantes/restaurante/restaurante.component";
-import { RestaurantesService } from "app/restaurantes/restaurantes.service";
 import { RestauranteDetailComponent } from './restaurante-detail/restaurante-detail.component';
 import { MenuComponent } from 'app/restaurante-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurante-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurante-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurante-detail/reviews/reviews.component';
-import { ShoppingCartService } from "app/restaurante-detail/shopping-cart/shopping-cart.service";
-import { OrderComponent } from './order/order.component';
-import { OrderItemsComponent } from 'app/order/order-items/order-items.component';
-import { OrderService } from "app/order/order.service";
-import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from "app/shared/shared.module";
-
+import { CoreModule } from 'app/core/core.module'
 
 @NgModule({
   declarations: [
@@ -39,9 +33,6 @@ import { SharedModule } from "app/shared/shared.module";
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderComponent,
-    OrderItemsComponent,
-    DeliveryCostsComponent,
     OrderSummaryComponent
   ],
   imports: [
@@ -50,7 +41,7 @@ import { SharedModule } from "app/shared/shared.module";
     SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestaurantesService, ShoppingCartService, OrderService, FormBuilder, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [FormBuilder, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
