@@ -18,8 +18,8 @@ import 'rxjs/add/observable/timer'
         opacity: 1,
         bottom: '30px'
       })),
-      transition('hidden => visible', animate('500 ms 0s ease-in')),
-      transition('visible => hidden', animate('500 ms 0s ease-out')),
+      transition('hidden => visible', animate('500ms 0s ease-in')),
+      transition('visible => hidden', animate('500ms 0s ease-out')),
     ])
   ]
 })
@@ -38,6 +38,7 @@ export class SnackbarComponent implements OnInit {
         Observable.timer(3000).subscribe(timer => this.snackVisibility = 'hidden')
     })
   }
+
 
   toggleSnack(){
     this.snackVisibility = this.snackVisibility ==='hidden' ? 'visible' : 'hidden'
