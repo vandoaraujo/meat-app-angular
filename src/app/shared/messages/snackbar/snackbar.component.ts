@@ -3,6 +3,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { NotificationService } from "app/shared/messages/notification.service";
 import {Observable} from 'rxjs/Observable'
 import 'rxjs/add/observable/timer'
+import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/switchMap'
 
 @Component({
   selector: 'mt-snackbar',
@@ -32,11 +34,17 @@ export class SnackbarComponent implements OnInit {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.notificationService.notifier.subscribe(message => {
+    //Subscribe => coloca um listener no observable e só a partir daquele ponto o Observable vai notificar voce
+    //do => Permite executar uma ação no momento que chega aquela mensagem naquela cadeia, ele faz parte da configuração...
+    //Com o switchMap vc encadeia dois subscribers... e troca o Observable...
+    //quando chega uma mensagem e vc manda outra mensagem, ele ve que existe um antigo
+    //e faz o unsubscribe do antigo e faz o subscribe do novo com o timer novo
+    this.notificationService.notifier
+    .do(message => {
         this.message = message
         this.snackVisibility = 'visible'
-        Observable.timer(3000).subscribe(timer => this.snackVisibility = 'hidden')
-    })
+    }).switchMap(message => Observable.timer(3000))
+      .subscribe(timer => this.snackVisibility = 'hidden')
   }
 
 
