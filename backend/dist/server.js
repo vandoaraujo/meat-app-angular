@@ -1,9 +1,10 @@
 "use strict";
 exports.__esModule = true;
 var jsonServer = require("json-server");
+var express = require("express");
 var fs = require("fs");
 var https = require("https");
-var server = jsonServer.create();
+var server = express();
 var router = jsonServer.router('db.json');
 var middlewares = jsonServer.defaults();
 // Set default middlewares (logger, static, cors and no-cache)
@@ -11,6 +12,9 @@ server.use(middlewares);
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
+server.post('/login', function (req, res) {
+    res.json({ message: 'ok' });
+});
 // Use default router
 server.use(router);
 var options = {

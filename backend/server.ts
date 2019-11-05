@@ -1,10 +1,10 @@
 import * as jsonServer from 'json-server'
-import {Express} from 'express'
+import * as express from 'express'
 
 import * as fs from 'fs'
 import * as https from 'https'
 
-const server: Express = jsonServer.create()
+const server = express()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
@@ -13,6 +13,10 @@ server.use(middlewares)
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser)
+
+server.post('/login', (req, res)=>{
+  res.json({message: 'ok'})
+})
 
 // Use default router
 server.use(router)
