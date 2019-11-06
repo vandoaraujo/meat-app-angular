@@ -3,6 +3,7 @@ import {Express} from 'express'
 import * as fs from 'fs'
 import * as https from 'https'
 import {handleAuthentication} from './auth'
+import {handleAuthorization} from './authz'
 
 const server: Express = jsonServer.create()
 const router = jsonServer.router('db.json')
@@ -17,6 +18,8 @@ server.use(jsonServer.bodyParser)
 
 //middlewares
 server.post('/login', handleAuthentication)
+//O use serve para todos os métodos, GET, POST etc
+server.use('/orders', handleAuthorization)
 
 // Use default router
 server.use(router)
