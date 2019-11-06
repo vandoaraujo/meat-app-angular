@@ -18,8 +18,8 @@ server.use(jsonServer.bodyParser)
 server.use(router)
 
 const options = {
-  cert: fs.readFileSync('./backend/keys/cert.perm'),
-  key: fs.readFileSync('./backend/keys/key.perm') 
+  cert: fs.readFileSync('./backend/keys/cert.pem'),
+  key: fs.readFileSync('./backend/keys/key.pem')
 }
 
 https.createServer(options, server).listen(3001, () => {

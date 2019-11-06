@@ -14,8 +14,8 @@ server.use(jsonServer.bodyParser);
 // Use default router
 server.use(router);
 var options = {
-    cert: fs.readFileSync('./backend/keys/cert.perm'),
-    key: fs.readFileSync('./backend/keys/key.perm')
+    cert: fs.readFileSync('./backend/keys/cert.pem'),
+    key: fs.readFileSync('./backend/keys/key.pem')
 };
 https.createServer(options, server).listen(3001, function () {
     console.log('JSON Server is running https://localhost:3001');
