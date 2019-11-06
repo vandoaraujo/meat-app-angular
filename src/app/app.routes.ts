@@ -9,9 +9,11 @@ import { ReviewsComponent } from "app/restaurante-detail/reviews/reviews.compone
 import { OrderComponent } from "app/order/order.component";
 import { OrderSummaryComponent } from "app/order-summary/order-summary.component";
 import { NotFoundComponent } from "app/not-found/not-found.component";
+import {LoginComponent} from "./login/login.component"
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'restaurants', component: RestaurantesComponent},
   {path: 'restaurantes/:id', component: RestauranteDetailComponent,
     children: [
