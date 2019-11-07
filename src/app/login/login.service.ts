@@ -3,15 +3,24 @@ import { Injectable } from "@angular/core";
 import {MEAT_API} from '../app.api';
 
 import { Observable } from 'rxjs/Observable'
+import { User } from "app/login/user.model";
 
 @Injectable()
 export class LoginService {
 
+  user: User
+
   constructor (private http:HttpClient){}
 
-  login(email: string, password : string){
-    return this.http.post(`${MEAT_API}/login`,
-          {email: email, password: password})
+  isLoggedIn(): boolean {
+    return this.user !== undefined
   }
-  
+
+  login(email: string, password : string): Observable<User> {
+    //template strings permitem uso de expressões
+    return this.http.post<User>(`${MEAT_API}/login`,
+          {email: email, password: password})
+          .do(user => this.user = user)
+  }
+
 }
