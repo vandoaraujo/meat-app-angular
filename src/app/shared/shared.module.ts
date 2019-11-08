@@ -23,7 +23,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers:[ShoppingCartService, RestaurantesService, OrderService, NotificationService, LoginService]
+      providers:[ShoppingCartService, RestaurantesService, OrderService, NotificationService, LoginService, LoggedInGuard]
     }
   }
 
