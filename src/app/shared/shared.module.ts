@@ -11,6 +11,7 @@ import { OrderService } from "app/order/order.service";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from "app/shared/messages/notification.service";
 import {LoginService} from 'app/login/login.service'
+import {LoggedInGuard} from 'app/login/loggedIn.guard'
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],

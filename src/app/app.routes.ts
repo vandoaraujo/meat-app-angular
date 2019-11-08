@@ -10,6 +10,7 @@ import { OrderComponent } from "app/order/order.component";
 import { OrderSummaryComponent } from "app/order-summary/order-summary.component";
 import { NotFoundComponent } from "app/not-found/not-found.component";
 import {LoginComponent} from "./login/login.component"
+import {LoggedInGuard} from './login/loggedIn.guard'
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,8 @@ export const ROUTES: Routes = [
       {path: 'menu', component: MenuComponent},
       {path: 'reviews', component: ReviewsComponent}
     ]},
-  {path: 'order', loadChildren: './order/order.module#OrderModule'},
+  {path: 'order', loadChildren: './order/order.module#OrderModule',
+    canLoad: [LoggedInGuard]},
   {path: 'order-summary', component: OrderSummaryComponent},
   {path: 'about', loadChildren: './about/about.module#AboutModule'},
   //WILDCARD ROOT
