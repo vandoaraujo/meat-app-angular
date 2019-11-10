@@ -7,7 +7,6 @@ import 'rxjs/add/operator/catch'
 import { Restaurante } from "app/restaurantes/restaurante/restaurante.model";
 
 import {MEAT_API} from '../app.api'
-import {ErrorHandler} from '../app.error-handler'
 import { MenuItem } from "app/restaurante-detail/menu-item/menu-item.model";
 import { HttpParams } from "@angular/common/http";
 
