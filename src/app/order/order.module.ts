@@ -5,9 +5,10 @@ import { DeliveryCostsComponent } from "app/order/delivery-costs/delivery-costs.
 import { NgModule } from "@angular/core";
 import { AboutComponent } from "app/about/about.component";
 import { Routes, RouterModule } from "@angular/router";
+import {LeaveOrderGuard} from './leave-order.guard'
 
 const ROUTES : Routes = [
-  {path: '', component: OrderComponent}
+  {path: '', component: OrderComponent, canDeactivate: [LeaveOrderGuard]}
 ]
 
 @NgModule({
