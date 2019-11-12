@@ -1,7 +1,7 @@
 import {ErrorHandler, Injectable, Injector, NgZone} from '@angular/core'
-import {Observable} from 'rxjs/Observable'
 import {HttpErrorResponse} from '@angular/common/http'
-import 'rxjs/add/observable/throw'
+// import 'rxjs/add/observable/throw'
+// import {throwError} from 'rxjs/operators'
 import { NotificationService } from "app/shared/messages/notification.service";
 import { LoginService } from "app/login/login.service";
 
