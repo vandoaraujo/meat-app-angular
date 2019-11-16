@@ -19,19 +19,19 @@ export class RestaurantesService {
       params = new HttpParams().append('q', search)
     }
     console.log('MEAT API ' + `${MEAT_API}`)
-    return this.http.get<Restaurante[]>(`${MEAT_API}/restaurants`, {params: params })
+    return this.http.get<Restaurante[]>(`${MEAT_API}/restaurantes`, {params: params })
   }
 
   //*um servico retorna um observable, por isso é necessario um map transformando-o em json.
   restaurantesById(id: string): Observable<Restaurante>{
-    return this.http.get<Restaurante>(`${MEAT_API}/restaurants/${id}`)
+    return this.http.get<Restaurante>(`${MEAT_API}/restaurantes/${id}`)
   }
 
   reviewsOfRestaurant(id: String): Observable<any>{
-    return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
+    return this.http.get(`${MEAT_API}/restaurantes/${id}/reviews`)
   }
 
   menuOfRestaurant(id: String): Observable<MenuItem>{
-    return this.http.get<MenuItem>(`${MEAT_API}/restaurants/${id}/menu`)
+    return this.http.get<MenuItem>(`${MEAT_API}/restaurantes/${id}/menu`)
   }
 }
