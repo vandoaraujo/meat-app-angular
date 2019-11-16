@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
+    "heroku-prebuild": "nodemon backend/dist/server.js --watch backend",
     "heroku-postbuild": "ng build --prod",
     "start": "node server.js",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
