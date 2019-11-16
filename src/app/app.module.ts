@@ -54,8 +54,10 @@ import { ApplicationErrorHandler } from "app/app.error-handler";
     RouterModule.forRoot(ROUTES, {preloadingStrategy : PreloadAllModules})
   ],
   //providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: LOCALE_ID, useValue: 'pt-BR'}],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: LOCALE_ID, useValue: 'pt'},
-              {provide: ErrorHandler, useClass: ApplicationErrorHandler}],
+  //providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: LOCALE_ID, useValue: 'pt'},
+  //            {provide: ErrorHandler, useClass: ApplicationErrorHandler}],
+  providers: [{provide: LOCALE_ID, useValue: 'pt'},
+                          {provide: ErrorHandler, useClass: ApplicationErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
