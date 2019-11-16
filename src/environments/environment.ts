@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api: 'https://localhost:3001'
+  api: 'https://aliment-app.herokuapp.com:3001'
 };
