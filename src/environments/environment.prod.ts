@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'https://localhost'
+  api: 'https://aliment-app.herokuapp.com/'
 };
