@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api: 'https://snack-food-app.herokuapp.com/'
+  api: 'https://snack-food-app.herokuapp.com'
 };
